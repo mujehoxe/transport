@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: registration
+  config:
+    import: optional:configserver:http://localhost:8888

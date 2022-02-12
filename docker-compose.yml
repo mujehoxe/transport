@@ -1,0 +1,90 @@
+version: "3"
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017-27020:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    tmpfs:
+      - /run
+      - /var/cache
+
+  config:
+    image: config:latest
+    container_name: config
+    expose:
+      - "8888"
+
+  discovery:
+    image: discovery:latest
+    container_name: discovery
+    depends_on:
+      - "config"
+    expose:
+      - "8761"
+
+  planing:
+    image: planing:latest
+    container_name: planing
+    depends_on:
+      - discovery
+      - mongo
+    expose:
+      - "8763"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+
+  auth-service:
+    image: auth-service:latest
+    container_name: auth-service
+    depends_on:
+      - discovery
+      - mongo
+    expose:
+      - "8762"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+
+
+  registration:
+    image: registration:latest
+    container_name: registration
+    depends_on:
+      - auth-service
+      - discovery
+      - mongo
+    expose:
+      - "8764"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+
+  booking:
+    image: booking:latest
+    container_name: booking
+    depends_on:
+      - planing
+      - registration
+    expose:
+      - "8765"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+
+  gateway:
+    image: gateway:latest
+    container_name: gateway
+    ports:
+      - "8083:8760"
+    depends_on:
+      - discovery
+      - auth-service
+    environment:
+      - JAVA_OPTS=
+        - DEUREKA_SERVER=http://registry:8761/eureka
