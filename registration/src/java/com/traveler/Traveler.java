@@ -1,4 +1,4 @@
-package com.example.registration.traveler;
+package com.traveler;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;

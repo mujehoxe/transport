@@ -1,9 +1,9 @@
-package com.example.planing;
+package com;
 
-import com.example.planing.bus.Bus;
-import com.example.planing.bus.BusRepository;
-import com.example.planing.trip.Trip;
-import com.example.planing.trip.TripRepository;
+import com.bus.Bus;
+import com.bus.BusRepository;
+import com.trip.Trip;
+import com.trip.TripRepository;
 import lombok.AllArgsConstructor;
 
 import org.bson.types.ObjectId;

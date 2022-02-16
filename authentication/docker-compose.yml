@@ -2,7 +2,7 @@ version: "3"
 
 services:
   mongo:
-    container_name: mongo
+    container_name: mongo-authentication
     image: mongo:latest
     ports:
       - "27017-27020:27017"
@@ -12,76 +12,3 @@ services:
     tmpfs:
       - /run
       - /var/cache
-
-  config:
-    image: config:latest
-    container_name: config
-    expose:
-      - "8888"
-
-  discovery:
-    image: discovery:latest
-    container_name: discovery
-    depends_on:
-      - "config"
-    expose:
-      - "8761"
-
-  planing:
-    image: planing:latest
-    container_name: planing
-    depends_on:
-      - discovery
-      - mongo
-    expose:
-      - "8763"
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://localhost:8761/eureka
-
-  auth-service:
-    image: auth-service:latest
-    container_name: auth-service
-    depends_on:
-      - discovery
-      - mongo
-    expose:
-      - "8762"
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://localhost:8761/eureka
-
-
-  registration:
-    image: registration:latest
-    container_name: registration
-    depends_on:
-      - auth-service
-    expose:
-      - "8764"
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://localhost:8761/eureka
-
-  booking:
-    image: booking:latest
-    container_name: booking
-    depends_on:
-      - planing
-      - registration
-    expose:
-      - "8765"
-    environment:
-      - JAVA_OPTS=
-        -DEUREKA_SERVER=http://localhost:8761/eureka
-
-  gateway:
-    image: gateway:latest
-    container_name: gateway
-    expose:
-      - "8080"
-    depends_on:
-      - booking
-    environment:
-      - JAVA_OPTS=
-        - DEUREKA_SERVER=http://localhost:8761/eureka8761

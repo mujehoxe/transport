@@ -1,6 +1,6 @@
-package com.example.registration.config;
+package com.config;
 
-import com.example.registration.traveler.Traveler;
+import com.traveler.Traveler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;

@@ -1,6 +1,6 @@
-package com.example.planing.config;
+package com.config;
 
-import com.example.planing.trip.Trip;
+import com.trip.Trip;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;

@@ -6,4 +6,4 @@ spring:
     config:
       server:
         git:
-          uri: file://${user.home}/Documents/java/transport/cloud-config/
+          uri: file://${user.home}/Documents/java/transport/config/cloud-config/

@@ -1,4 +1,4 @@
-package com.example.planing.bus;
+package com.bus;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

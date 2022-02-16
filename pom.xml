@@ -10,13 +10,14 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>auth-service</module>
+        <module>authentication1</module>
         <module>booking</module>
         <module>config</module>
         <module>discovery</module>
         <module>gateway</module>
         <module>planing</module>
         <module>registration</module>
+        <module>authentication</module>
     </modules>
 
 </project>

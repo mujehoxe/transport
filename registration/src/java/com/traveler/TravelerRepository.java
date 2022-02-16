@@ -1,4 +1,4 @@
-package com.example.registration.traveler;
+package com.traveler;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

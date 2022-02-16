@@ -1,7 +1,7 @@
-package com.example.registration;
+package com;
 
-import com.example.registration.traveler.Traveler;
-import com.example.registration.traveler.TravelerRepository;
+import com.traveler.Traveler;
+import com.traveler.TravelerRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.boot.CommandLineRunner;

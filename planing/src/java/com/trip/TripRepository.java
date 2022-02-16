@@ -1,4 +1,4 @@
-package com.example.planing.trip;
+package com.trip;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

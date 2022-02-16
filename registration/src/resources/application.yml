@@ -1,6 +1,6 @@
 spring:
   cloud:
     config:
-      name: planing
+      name: registration
   config:
     import: optional:configserver:http://localhost:8888

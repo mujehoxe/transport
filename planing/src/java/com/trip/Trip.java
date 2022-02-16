@@ -1,4 +1,4 @@
-package com.example.planing.trip;
+package com.trip;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
