@@ -11,9 +11,12 @@
 
     <modules>
         <module>auth-service</module>
+        <module>booking</module>
+        <module>config</module>
         <module>discovery</module>
         <module>gateway</module>
-        <module></module>
+        <module>planing</module>
+        <module>registration</module>
     </modules>
 
 </project>
