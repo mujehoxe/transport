@@ -15,8 +15,8 @@ import lombok.AllArgsConstructor;
 @EnableFeignClients
 public class AuthenticationApplication implements CommandLineRunner {
 
-//	AccountService accountService;
-//	UserRepository userRepository;
+	AccountService accountService;
+	UserRepository userRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(AuthenticationApplication.class, args);
